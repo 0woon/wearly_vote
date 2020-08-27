@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wearly</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
+    <script src="https://kit.fontawesome.com/40f8bdd2fa.js"></script>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href='{% static "css/reset.css" %}'/>
+    <link rel="stylesheet" type="text/css" href='{% static "css/wearly.css" %}'/>
+  </head>
+  <body>
+    <form action="{% url 'vote' %}" method="post">
+        <div class="page" id="first">
+            <div id="intro">당신의 스타일을 골라주세요 <i class="far fa-hand-point-up"></i></div>
+            {% csrf_token %}
+            <div id="first_wrap">
+                <div class="first_li" id="name_input">
+                    별명<input type="text" name="name" placeholder="별명을 입력해주세요" required autocomplete="off">
+                </div>
+                <div class="first_li" id="age_input">
+                    나이<input type="text" name="age" placeholder="나이를 입력해주세요" autocomplete="off"
+                             required onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"  onkeydown="this.value=this.value.replace(/[^0-9]/g,'');">
+                </div>
+                <div class="first_li">
+                    성별
+                    <label><input type="radio" value="F" name="gender" checked="checked"><span>여자</span></label>
+                    <label><input type="radio" value="M" name="gender"><span>남자</span></label>
+                </div>
+                <div class="first_li">
+                    <button id="next_page" type="button">설문 시작</button>
+                </div>
+            </div>
+        </div>
+    <!-- /////////////////////////////////////////////////////////////////////////////////// -->
+        <div class="page" id="second">
+            <div id="box_wrap">
+                <ul class="image_box" id="men_image">
+                    {% for image in image_list %}
+                    <li>
+                        <div class="image" data-num="{{ forloop.counter }}" value="{{ image.idx }}">
+                            <img src="{{ image.file.url }}" style="object-fit:cover;" height="100%">
+                            <div class="rank">
+                                <label><input type="radio" name="imageScore{{ forloop.counter }}" value="{{ image.file }}1" >Bad</label>
+                                <label><input type="radio" name="imageScore{{ forloop.counter }}" value="{{ image.file }}3" checked="checked">So so</label>
+                                <label><input type="radio" name="imageScore{{ forloop.counter }}" value="{{ image.file }}5" >Good</label>
+                            </div>
+                        </div>
+                    </li>
+                    {% if forloop.counter == 10 %}
+                    <progress value="10" max="100"></progress>
+                    {% elif forloop.counter == 20 %}
+                    <progress value="20" max="100"></progress>
+                    {% elif forloop.counter == 30 %}
+                    <progress value="30" max="100"></progress>
+                    {% elif forloop.counter == 40 %}
+                    <progress value="40" max="100"></progress>
+                    {% elif forloop.counter == 50 %}
+                    <progress value="50" max="100"></progress>
+                    {% elif forloop.counter == 60 %}
+                    <progress value="60" max="100"></progress>
+                    {% elif forloop.counter == 70 %}
+                    <progress value="70" max="100"></progress>
+                    {% elif forloop.counter == 80 %}
+                    <progress value="80" max="100"></progress>
+                    {% elif forloop.counter == 90 %}
+                    <progress value="90" max="100"></progress>
+                    {% elif forloop.counter == 100 %}
+                    <progress value="100" max="100"></progress>
+                    {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div id="finish_button">
+                <button id="finish" type="submit">제출</button>
+            </div>
+        </div>
+    </form>
+    <!-- /////////////////////////////////////////////////////////////////////////////////// 시연때 보여줄 페이지??? 아니면 그냥 감사합니다?? -->
+    <div class="page" id="third">
+
+    </div >
+  </body>
+  <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+  {% load static %}
+<!--  <script src="{% static 'js/wearly.js' %}"></script>-->
+    <script>
+      $("#next_page").on("click",function(){
+
+        //   var gender = $(this).text();
+        //   alert(gender);
+          $("#first").css('display','none');
+          $("#second").css('display','block');
+      });
+    </script>
+</html>
