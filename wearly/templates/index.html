@@ -15,7 +15,7 @@
             {% csrf_token %}
             <div id="first_wrap">
                 <div class="first_li" id="name_input">
-                    별명<input type="text" name="name" placeholder="별명을 입력해주세요" required autocomplete="off">
+                    별명1<input type="text" name="name" placeholder="별명을 입력해주세요" required autocomplete="off">
                 </div>
                 <div class="first_li" id="age_input">
                     나이<input type="text" name="age" placeholder="나이를 입력해주세요" autocomplete="off"
@@ -71,7 +71,7 @@
                 </ul>
             </div>
             <div id="finish_button">
-                <button id="finish" type="submit">제출</button>
+                <button id="finish" type="submit" onsubmit="return false">제출</button>
             </div>
         </div>
     </form>
