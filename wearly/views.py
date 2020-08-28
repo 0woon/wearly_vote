@@ -28,7 +28,7 @@ def vote(req):
     form = UserForm(req.POST)
     a = form.save(commit=False)
     # print(a.name)
-    # print(a.age)
+    # print(a.age)hero
     # print(a.gender)
     # print(a.imageScore1)
     a.save()
