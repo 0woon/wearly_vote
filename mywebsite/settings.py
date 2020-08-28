@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'mywebsite.wsgi.application'
 
 DATABASES = {
   'default': {
-  'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'wearly',
-    'HOST': 'localhost',
-    'PORT': '3306',
-    'USER': 'root',
-    'PASSWORD': '123456'
+  'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'de8i6u9p9i6vq8',
+    'HOST': 'ec2-3-215-207-12.compute-1.amazonaws.com',
+    'PORT': '5432',
+    'USER': 'jczdtzmaouemml',
+    'PASSWORD': 'f3f55cc0c6bd25a42866864c9299f4ec79ff4ff890f6f69467e2b14dc0010074'
   }
 }
 
