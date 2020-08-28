@@ -72,6 +72,7 @@
             </div>
             <div id="finish_button">
                 <button id="finish" type="submit" onsubmit="return false">제출</button>
+<!--                <button id="finish" type="submit" onsubmit="return false">제출</button>-->
             </div>
         </div>
     </form>
@@ -84,19 +85,20 @@
   {% load static %}
 <!--  <script src="{% static 'js/wearly.js' %}"></script>-->
     <script>
-      $("#next_page").on("click",function(){
-
-        //   var gender = $(this).text();
-        //   alert(gender);
-          $("#first").css('display','none');
-          $("#second").css('display','block');
+        $("#next_page").on("click",function(){
+          if($("#name_input>input").val() != '' && $("#age_input>input").val() != ''){
+              $("#first").css('display','none');
+              $("#second").css('display','block');
+          }else{
+              alert("별명과 나이를 적어주세요!")
+          }
       });
 
-      $('input[type="text"]').keydown(function() {
+      document.addEventListener('keydown', function(event) {
         if (event.keyCode === 13) {
-        event.preventDefault();
-       };
-      });
+            event.preventDefault();
+        };
+      }, true);
 
     </script>
 </html>
