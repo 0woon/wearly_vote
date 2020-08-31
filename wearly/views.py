@@ -4,8 +4,8 @@ from random import randint
 from django.http import HttpResponse
 from django import forms
 from .forms import UserForm
-import pandas as pd
-import numpy as np
+# import pandas as pd
+# import numpy as np
 
 
 # Create your views here.
