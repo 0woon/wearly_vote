@@ -132,7 +132,6 @@ class Image(models.Model):
     #     return self.file
 
 
-
 class wear(models.Model):
     idx = models.BigAutoField(primary_key=True)
     image_id = models.IntegerField()
@@ -213,4 +212,5 @@ class wear(models.Model):
     tomboy = models.IntegerField()
     preppy = models.IntegerField()
     kitsch_kidult = models.IntegerField()
-    style = models.TextField()
+    style = models.TextField(null=True,default='')
+
