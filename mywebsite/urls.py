@@ -20,7 +20,7 @@ from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import static
 
-#http://localhost:8000/
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wearly/', include("wearly.urls")),

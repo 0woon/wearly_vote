@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
+from django_pandas.managers import DataFrameManager
 
 
 # 유저 정보(이름, 성별, 나이, 이미지별 점수)
@@ -212,3 +213,4 @@ class wear(models.Model):
     tomboy = models.IntegerField()
     preppy = models.IntegerField()
     kitsch_kidult = models.IntegerField()
+    style = models.TextField()

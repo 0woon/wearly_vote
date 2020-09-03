@@ -13,21 +13,23 @@
         <div class="page" id="first">
             <div id="intro">당신의 스타일을 골라주세요 <i class="far fa-hand-point-up"></i></div>
             {% csrf_token %}
-            <div id="first_wrap">
-                <div class="first_li" id="name_input">
-                    별명<input type="text" name="name" placeholder="별명을 입력해주세요" required autocomplete="off">
-                </div>
-                <div class="first_li" id="age_input">
-                    나이<input type="text" name="age" placeholder="나이를 입력해주세요" autocomplete="off"
-                             required onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"  onkeydown="this.value=this.value.replace(/[^0-9]/g,'');">
-                </div>
-                <div class="first_li">
-                    성별
-                    <label><input type="radio" value="F" name="gender" checked="checked"><span>여자</span></label>
-                    <label><input type="radio" value="M" name="gender"><span>남자</span></label>
-                </div>
-                <div class="first_li">
-                    <button id="next_page" type="button">설문 시작</button>
+            <div id="pink">
+                <div id="first_wrap">
+                    <div class="first_li" id="name_input">
+                        별명<input type="text" name="name" placeholder="별명을 입력해주세요" required autocomplete="off">
+                    </div>
+                    <div class="first_li" id="age_input">
+                        나이<input type="text" name="age" placeholder="나이를 입력해주세요" autocomplete="off"
+                                 required onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"  onkeydown="this.value=this.value.replace(/[^0-9]/g,'');">
+                    </div>
+                    <div class="first_li">
+                        성별
+                        <label><input type="radio" value="F" name="gender" checked="checked"><span>여자</span></label>
+                        <label><input type="radio" value="M" name="gender"><span>남자</span></label>
+                    </div>
+                    <div class="first_li">
+                        <button id="next_page" type="button">설문 시작</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,33 +74,15 @@
             </div>
             <div id="finish_button">
                 <button id="finish" type="submit" onsubmit="return false">제출</button>
-<!--                <button id="finish" type="submit" onsubmit="return false">제출</button>-->
+
             </div>
         </div>
     </form>
     <!-- /////////////////////////////////////////////////////////////////////////////////// 시연때 보여줄 페이지??? 아니면 그냥 감사합니다?? -->
-    <div class="page" id="third">
-
-    </div >
+<!--    <div class="page" id="third">-->
+<!--        -->
+<!--    </div>-->
   </body>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-  {% load static %}
-<!--  <script src="{% static 'js/wearly.js' %}"></script>-->
-    <script>
-        $("#next_page").on("click",function(){
-          if($("#name_input>input").val() != '' && $("#age_input>input").val() != ''){
-              $("#first").css('display','none');
-              $("#second").css('display','block');
-          }else{
-              alert("별명과 나이를 적어주세요!")
-          }
-      });
-
-      document.addEventListener('keydown', function(event) {
-        if (event.keyCode === 13) {
-            event.preventDefault();
-        };
-      }, true);
-
-    </script>
+  <script src="{% static 'js/wearly.js' %}"></script>
 </html>
